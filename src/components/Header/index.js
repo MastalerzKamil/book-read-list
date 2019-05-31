@@ -5,7 +5,7 @@ import './index.css';
 function Header() {
   return (
     <div className='Header'>
-      header
+      <div className='Header__title'>Book read list</div>
     </div>
   );
 }
