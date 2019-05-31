@@ -12,6 +12,15 @@ app.get('/api/greeting', (req, res) => {
   res.send(JSON.stringify({ greeting: `Hello ${name}!` }));
 });
 
+// POST http://localhost:4000/api/sendForm
+// parameters sent with 
+app.post('/api/sendForm', function(req, res) {
+  const { title, author, isbn, numberOfPages, bookRate } = res.body;
+
+  res.send(title + ' ' + author + ' ' + isbn + ' ' +
+  numberOfPages + ' ' + bookRate);
+});
+
 app.listen(4000, () =>
-  console.log('Express server is running on localhost:400')
+  console.log('Express server is running on localhost:4000')
 );
