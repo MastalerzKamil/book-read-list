@@ -1,0 +1,11 @@
+.Form {
+  display: flex;
+  justify-content: center;
+}
+
+.Form__inputs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 20px 10px;
+}
