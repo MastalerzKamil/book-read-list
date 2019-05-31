@@ -2,6 +2,7 @@ import React from 'react';
 import MaterialTable from 'material-table';
 
 import './index.css';
+import tableIcons from './tableIcons';
 
 function BooksList() {
   const [state, setState] = React.useState({
@@ -29,7 +30,8 @@ function BooksList() {
   return(
     <div className='BooksList'>
       <MaterialTable
-      title="Editable Example"
+      icons={tableIcons}
+      title="Books list"
       columns={state.columns}
       data={state.data}
       editable={{
