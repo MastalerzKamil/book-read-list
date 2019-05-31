@@ -7,22 +7,26 @@ import tableIcons from './tableIcons';
 function BooksList() {
   const [state, setState] = React.useState({
     columns: [
-      { title: 'Name', field: 'name' },
-      { title: 'Surname', field: 'surname' },
-      { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
-      {
-        title: 'Birth Place',
-        field: 'birthCity',
-        lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-      },
+      { title: 'Title', field: 'title' },
+      { title: 'Author', field: 'author' },
+      { title: 'ISBN', field: 'isbn' },
+      { title: 'Number of pages', field: 'numberOfPages', type: 'numeric' },
+      { title: 'Rate', field: 'bookRate', type: 'numeric' },
     ],
     data: [
-      { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
+      { 
+        title: 'Mehmet',
+        author: 'Baran',
+        isbn: '1234567890',
+        numberOfPages: 203,
+        bookRate: 5 
+      },
       {
-        name: 'Zerya Betül',
-        surname: 'Baran',
-        birthYear: 2017,
-        birthCity: 34,
+        title: 'Zerya Betül',
+        author: 'Baran',
+        isbn: '0987654321',
+        numberOfPages: 154,
+        bookRate: 4,
       },
     ],
   });
@@ -35,15 +39,6 @@ function BooksList() {
       columns={state.columns}
       data={state.data}
       editable={{
-        onRowAdd: newData =>
-          new Promise(resolve => {
-            setTimeout(() => {
-              resolve();
-              const data = [...state.data];
-              data.push(newData);
-              setState({ ...state, data });
-            }, 600);
-          }),
         onRowUpdate: (newData, oldData) =>
           new Promise(resolve => {
             setTimeout(() => {
