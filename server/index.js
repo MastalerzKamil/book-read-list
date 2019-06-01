@@ -24,14 +24,10 @@ app.get('/api/greeting', (req, res) => {
 // POST http://localhost:4000/api/sendForm
 // parameters sent with 
 app.post('/api/sendForm', function(req, res) {
-  console.log(res.body);
-  const { title, author, isbn, numberOfPages, bookRate } = res.body;
+  const { title, author, isbn, numberOfPages, bookRate } = req.body;
 
   mockedBooks.push({ title, author, isbn, numberOfPages, bookRate });
-  
-  res.send(title + ' ' + author + ' ' + isbn + ' ' +
-  numberOfPages + ' ' + bookRate);
-  
+  res.send(JSON.stringify({ addedBook: req.body }));
 });
 
 app.get('/api/getBooks', function (req, res) {
