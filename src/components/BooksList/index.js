@@ -25,8 +25,12 @@ class BooksList extends Component {
     this.fetchBooks();
   }
 
-  componentDidUpdate(prevProps, prevState) {    // TODO Update only when state in redux store change itself
-    this.fetchBooks();
+  componentDidUpdate(prevProps, prevState) {
+    const { actions } = this.props;
+    if (prevProps.fetchList !== this.props.fetchList) {
+      this.fetchBooks();
+      actions.allowFetchListAgain();
+    }
   }
 
   fetchBooks() {
