@@ -19,6 +19,7 @@ app.get('/api/greeting', (req, res) => {
 app.post('/api/sendForm', function(req, res) {
   const { title, author, isbn, numberOfPages, bookRate } = res.body;
 
+  mockedBooks.push({ title, author, isbn, numberOfPages, bookRate });
   res.send(title + ' ' + author + ' ' + isbn + ' ' +
   numberOfPages + ' ' + bookRate);
 });

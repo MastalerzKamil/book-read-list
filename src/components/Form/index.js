@@ -80,11 +80,15 @@ function Form() {
           />
         </div>
         <div className='Form__submit'>
-          
+          <Button
+          variant="outlined"
+          color="primary"
+          className={classes.button}
+          onClick={() => { console.log(values); }}
+          >
+            Submit
+          </Button>
         </div>
-        <Button variant="outlined" color="primary" className={classes.button}>
-          Submit
-        </Button>
       </form>
     </div>
   );
