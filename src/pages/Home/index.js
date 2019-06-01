@@ -1,6 +1,6 @@
 import React from 'react'
-import { FormContainer } from 'container/UpdateList';
-import { BooksListContainer } from 'container/UpdateList';
+import { FormContainer } from 'containers/UpdateList';
+import { BooksListContainer } from 'containers/UpdateList';
 
 import './index.css';
 

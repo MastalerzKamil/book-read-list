@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import BooksList from 'components/BooksList';
-import Form from 'components/BooksList';
+import Form from 'components/Form';
 import * as UpdateListActions from 'actions/BooksList/pure';
 
 const mapStateToProps = state => ({
