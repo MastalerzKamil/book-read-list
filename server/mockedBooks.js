@@ -1,14 +1,14 @@
 const mockedBooks = [
   { 
-    title: 'Mehmet',
-    author: 'Baran',
+    title: 'The Hunger Games',
+    author: ' Suzanne Collins',
     isbn: '1234567890',
-    numberOfPages: 203,
+    numberOfPages: 432,
     bookRate: 5 
   },
   {
-    title: 'Zerya Betül',
-    author: 'Baran',
+    title: 'Harry Potter and the Order of the Phoenix',
+    author: 'J.K. Rowling',
     isbn: '0987654321',
     numberOfPages: 154,
     bookRate: 4,

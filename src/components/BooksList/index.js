@@ -36,7 +36,6 @@ class BooksList extends Component {
 
   render() {
      const { columns, data } = this.state;
-     console.log(this.state);
     return (
       <div className='BooksList'>
         <MaterialTable
