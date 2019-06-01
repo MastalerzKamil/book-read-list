@@ -5,7 +5,7 @@ import Form from 'components/Form';
 import * as FetchListActions from 'actions/FetchList/pure';
 
 const mapStateToProps = state => ({
-  fetchList: state.updateListReducer
+  fetchList: state.fetchListReducer
 });
 
 const mapDispatchToProps = dispatch => ({
