@@ -2,15 +2,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import BooksList from 'components/BooksList';
 import Form from 'components/Form';
-import * as UpdateListActions from 'actions/FetchList/pure';
+import * as FetchListActions from 'actions/FetchList/pure';
 
 const mapStateToProps = state => ({
-  updateList: state.updateListReducer
+  fetchList: state.updateListReducer
 });
 
 const mapDispatchToProps = dispatch => ({
   actions: {
-    ...bindActionCreators(UpdateListActions, dispatch),
+    ...bindActionCreators(FetchListActions, dispatch),
   },
 });
 

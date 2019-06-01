@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function Form({actions}) {
+function Form(props) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     title: 'Hunger Games',
@@ -26,9 +26,9 @@ function Form({actions}) {
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
-  const { title, author, isbn, numberOfPages, bookRate } = values
+  const { title, author, isbn, numberOfPages, bookRate } = values;
 
-  console.log(actions);
+  console.log(props);
   return (
     <div className='Form'>
       <form method='POST'>
@@ -88,7 +88,10 @@ function Form({actions}) {
           variant="outlined"
           color="primary"
           className={classes.button}
-          onClick={() => postFormsData({ title, author, isbn, numberOfPages, bookRate })}
+          onClick={() => { 
+            postFormsData({ title, author, isbn, numberOfPages, bookRate });
+            props.actions.fetchList();
+          }}
           >
             Submit
           </Button>
