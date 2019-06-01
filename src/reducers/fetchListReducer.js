@@ -5,6 +5,9 @@ export default function(state = false, action) {
     case actionNames.FETCH_LIST: {
       return true;
     }
+    case actionNames.ALLOW_FETCH: {
+      return false;
+    }
     default:
       return state;
   }

@@ -26,8 +26,10 @@ class BooksList extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    const { actions } = this.props;
     if (prevProps.fetchList !== this.props.fetchList) {
       this.fetchBooks();
+      actions.allowFetchListAgain();
     }
   }
 

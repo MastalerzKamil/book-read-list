@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => ({
 
 export const BooksListContainer = connect(
   mapStateToProps,
+  mapDispatchToProps,
 )(BooksList);
 
 
