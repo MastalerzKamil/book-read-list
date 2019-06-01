@@ -1,6 +1,6 @@
 # Book read list
 
-## Get Started
+## Geting Started
 
 App was created to add books which you read and save it into Table.
 
