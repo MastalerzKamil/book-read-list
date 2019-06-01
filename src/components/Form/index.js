@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { postFormsData } from 'api';
 
+import validator from 'validator';
+
 import './index.css';
 
 const useStyles = makeStyles(theme => ({
@@ -18,15 +20,26 @@ function Form(props) {
   const [values, setValues] = React.useState({
     title: 'Hunger Games',
     author: '',
-    isbn: '',
+    isbn: '978-1-56619-909-4 ',
     numberOfPages: 0,
     bookRate: 0,
+    displayErrors: false,
   });
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
-  const { title, author, isbn, numberOfPages, bookRate } = values;
+
+  const { title, author, isbn, numberOfPages, bookRate, displayErrors } = values;
+
+  const handleClick = () => {
+    if (validator.isISBN(isbn) && bookRate > 0 && bookRate <=5) {
+      postFormsData({ title, author, isbn, numberOfPages, bookRate });
+      props.actions.fetchList();
+    } else {
+      setValues({...values, displayErrors: true});
+    }
+  }
 
   console.log(props);
   return (
@@ -88,13 +101,11 @@ function Form(props) {
           variant="outlined"
           color="primary"
           className={classes.button}
-          onClick={() => { 
-            postFormsData({ title, author, isbn, numberOfPages, bookRate });
-            props.actions.fetchList();
-          }}
+          onClick={() => handleClick()}
           >
             Submit
           </Button>
+          {displayErrors ? <div className='Form__errors'>Invalid format of data. Please, check ISBN or book rate.</div> : null}
         </div>
       </form>
     </div>
