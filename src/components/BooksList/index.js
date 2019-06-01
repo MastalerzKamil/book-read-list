@@ -13,22 +13,6 @@ function BooksList() {
       { title: 'Number of pages', field: 'numberOfPages', type: 'numeric' },
       { title: 'Rate', field: 'bookRate', type: 'numeric' },
     ],
-    data: [
-      { 
-        title: 'Mehmet',
-        author: 'Baran',
-        isbn: '1234567890',
-        numberOfPages: 203,
-        bookRate: 5 
-      },
-      {
-        title: 'Zerya Betül',
-        author: 'Baran',
-        isbn: '0987654321',
-        numberOfPages: 154,
-        bookRate: 4,
-      },
-    ],
   });
 
   return(
@@ -37,13 +21,13 @@ function BooksList() {
       icons={tableIcons}
       title="Books list"
       columns={state.columns}
-      data={state.data}
+      data={state.data} // TODO fetch data
       editable={{
         onRowUpdate: (newData, oldData) =>
           new Promise(resolve => {
             setTimeout(() => {
               resolve();
-              const data = [...state.data];
+              const data = [...state.data]; 
               data[data.indexOf(oldData)] = newData;
               setState({ ...state, data });
             }, 600);

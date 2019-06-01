@@ -1,4 +1,4 @@
-const apiEndpoint = 'http://localhost:4000' // TODO move it to process.env.API_ENDPOINT variable
+export const apiEndpoint = 'http://localhost:4000' // TODO move it to process.env.API_ENDPOINT variable
 
 export function post(url, body) {
   return fetch(apiEndpoint + url, {
