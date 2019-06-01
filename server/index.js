@@ -2,27 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
 
-// const mockedBooks = require('./mockedBooks').mockedBooks;
-const mockedBooks = [
-  { 
-    title: 'Mehmet',
-    author: 'Baran',
-    isbn: '1234567890',
-    numberOfPages: 203,
-    bookRate: 5 
-  },
-  {
-    title: 'Zerya Betül',
-    author: 'Baran',
-    isbn: '0987654321',
-    numberOfPages: 154,
-    bookRate: 4,
-  },
-];
-
-module.exports = {
-  mockedBooks,
-}
+const mockedBooks = require('./mockedBooks').mockedBooks;
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
