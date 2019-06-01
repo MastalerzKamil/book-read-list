@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function Form() {
+function Form({actions}) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     title: 'Hunger Games',
@@ -27,6 +27,8 @@ function Form() {
     setValues({ ...values, [name]: event.target.value });
   };
   const { title, author, isbn, numberOfPages, bookRate } = values
+
+  console.log(actions);
   return (
     <div className='Form'>
       <form method='POST'>
