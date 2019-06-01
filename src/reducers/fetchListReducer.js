@@ -1,8 +1,8 @@
-import * as actionNames from 'constants/BooksListActionTypes';
+import * as actionNames from 'constants/FetchListActionTypes';
 
 export default function(state = false, action) {
   switch (action.type) {
-    case actionNames.UPDATE_LIST: {
+    case actionNames.FETCH_LIST: {
       return true;
     }
     default:

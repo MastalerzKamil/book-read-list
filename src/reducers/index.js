@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import updateListReducer from './updateListReducer';
+import fetchListReducer from './fetchListReducer';
 
 const rootReducer = combineReducers({
-  updateListReducer,
+  fetchListReducer,
 });
 
 export default rootReducer;
