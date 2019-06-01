@@ -2,6 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { postFormsData } from 'api';
 
 import './index.css';
 
@@ -25,12 +26,13 @@ function Form() {
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
+  const { title, author, isbn, numberOfPages, bookRate } = values
   return (
     <div className='Form'>
       <form method='POST'>
         <div className='Form__inputs'>
           <TextField
-            id='filled-name'
+            id='filled-title'
             label='Title'
             className={classes.textField}
             value={values.title}
@@ -40,7 +42,7 @@ function Form() {
           />
 
           <TextField
-            id='filled-name'
+            id='filled-author'
             label='Author'
             className={classes.textField}
             value={values.author}
@@ -50,7 +52,7 @@ function Form() {
           />
 
           <TextField
-            id='filled-name'
+            id='filled-isbn'
             label='ISBN'
             className={classes.textField}
             value={values.isbn}
@@ -60,7 +62,7 @@ function Form() {
           />
 
           <TextField
-            id='filled-name'
+            id='filled-pagesNumber'
             label='Number of pages'
             className={classes.textField}
             value={values.numberOfPages}
@@ -70,7 +72,7 @@ function Form() {
           />
 
           <TextField
-            id='filled-name'
+            id='filled-bookRate'
             label='Rate'
             className={classes.textField}
             value={values.bookRate}
@@ -84,7 +86,7 @@ function Form() {
           variant="outlined"
           color="primary"
           className={classes.button}
-          onClick={() => { console.log(values); }}
+          onClick={() => postFormsData({ title, author, isbn, numberOfPages, bookRate })}
           >
             Submit
           </Button>

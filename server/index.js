@@ -1,11 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
+const cors = require('cors');
 
+const frontendUrl = require('./env').frontendUrl;
 const mockedBooks = require('./mockedBooks').mockedBooks;
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.use(cors({
+  origin: frontendUrl
+}));
 app.use(pino);
 
 app.get('/api/greeting', (req, res) => {
@@ -17,11 +24,14 @@ app.get('/api/greeting', (req, res) => {
 // POST http://localhost:4000/api/sendForm
 // parameters sent with 
 app.post('/api/sendForm', function(req, res) {
+  console.log(res.body);
   const { title, author, isbn, numberOfPages, bookRate } = res.body;
 
   mockedBooks.push({ title, author, isbn, numberOfPages, bookRate });
+  
   res.send(title + ' ' + author + ' ' + isbn + ' ' +
   numberOfPages + ' ' + bookRate);
+  
 });
 
 app.get('/api/getBooks', function (req, res) {
