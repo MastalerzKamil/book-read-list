@@ -1,6 +1,6 @@
 import React from 'react'
-import Form from 'components/Form';
-import BooksList from 'components/BooksList';
+import { FormContainer } from 'container/UpdateList';
+import { BooksListContainer } from 'container/UpdateList';
 
 import './index.css';
 
@@ -8,10 +8,10 @@ function Home() {
   return (
   <div className='Home'>
     <div className='Home__section'>
-      <Form />
+      <FormContainer />
     </div>
     <div className='Home__section'>
-      <BooksList />
+      <BooksListContainer />
     </div>
   </div>
   );
