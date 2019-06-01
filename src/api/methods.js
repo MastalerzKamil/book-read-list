@@ -10,3 +10,7 @@ export function post(url, body) {
     body: JSON.stringify(body),
   });
 }
+
+export function get(url) {
+  return fetch(apiEndpoint + url);
+}

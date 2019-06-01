@@ -1,8 +1,4 @@
-import { post, apiEndpoint } from './utils';
-
-function get(url) {
-  return fetch(apiEndpoint + url);
-}
+import { post, get } from './methods';
 
 export function postFormsData({title, author, isbn, numberOfPages, rate}) {
   return post('/api/sendForm', {title, author, isbn, numberOfPages, rate});

@@ -15,4 +15,6 @@ const mockedBooks = [
   },
 ];
 
-export default mockedBooks;
+module.exports = {
+  mockedBooks,
+}
