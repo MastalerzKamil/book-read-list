@@ -18,9 +18,9 @@ const useStyles = makeStyles(theme => ({
 function Form(props) {
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    title: 'Hunger Games',
+    title: '',
     author: '',
-    isbn: '978-1-56619-909-4 ',
+    isbn: '',
     numberOfPages: 0,
     bookRate: 0,
     displayErrors: false,
